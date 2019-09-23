@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Geolocator</title>
+</head>
+
+<body>
+    <h1>Geolocator</h1>
+    <button onclick="myFunction()" id="myBtn">click me to find out your longitutde and lattitude</button>
+    <p>Latitude: <p id="latitude"></p>
+    </p>
+    <p>Longitude: <p id="longitude"></p>
+</p>
+
+    <script type="text/javascript">
+
+    let latitude;
+    let longitude;
+        if ("geolocation" in navigator) {
+            console.log("Geolocation Available")
+            navigator.geolocation.getCurrentPosition(position => {
+                console.log(position)
+                console.log(position.coords.latitude)
+                console.log(position.coords.longitude);
+                latitude = position.coords.latitude
+                longitude = position.coords.longitude
+            });
+        } else {
+            console.log("Geolocation Not Available")
+        }
+
+        let myFunction = () => {
+            document.getElementById("latitude").innerHTML = latitude;
+            document.getElementById("longitude").innerHTML = longitude;
+        }
+
+    </script>
+</body>
+
+</html>
