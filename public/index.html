@@ -5,21 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+
     <title>Geolocator</title>
 </head>
 
 <body>
     <h1>Geolocator</h1>
     <button onclick="myFunction()" id="myBtn">click me to find out your longitutde and lattitude</button>
-    <p>Latitude: <p id="latitude"></p>
-    </p>
-    <p>Longitude: <p id="longitude"></p>
-</p>
-
+    <p>Latitude: <span id="latitude"></span></p>
+    <p>Longitude: <span id="longitude"></span></p>
+    <div id="mapid"></div>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
     <script type="text/javascript">
 
-    let latitude;
-    let longitude;
+        let latitude;
+        let longitude;
         if ("geolocation" in navigator) {
             console.log("Geolocation Available")
             navigator.geolocation.getCurrentPosition(position => {
@@ -28,6 +35,7 @@
                 console.log(position.coords.longitude);
                 latitude = position.coords.latitude
                 longitude = position.coords.longitude
+
             });
         } else {
             console.log("Geolocation Not Available")
@@ -37,6 +45,15 @@
             document.getElementById("latitude").innerHTML = latitude;
             document.getElementById("longitude").innerHTML = longitude;
         }
+
+        var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'your.mapbox.access.token'
+        }).addTo(mymap);
 
     </script>
 </body>
