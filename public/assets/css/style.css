@@ -1,3 +1,8 @@
 #mapid { height: 400px; }
 
 h1 {color: red}
+
+.grid-container {
+    display: grid;
+    text-align: center; 
+  }
