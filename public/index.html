@@ -27,37 +27,39 @@
     <script type="text/javascript">
         
 
-        let latitude;
-        let longitude;
+        let initialLatitude=51.505
+        let initialLongitude=-0.09;
         if ("geolocation" in navigator) {
             console.log("Geolocation Available")
             navigator.geolocation.getCurrentPosition(position => {
                 console.log(position)
                 console.log(position.coords.latitude)
                 console.log(position.coords.longitude);
-                latitude = position.coords.latitude
-                longitude = position.coords.longitude
-
+                 initialLatitude = position.coords.latitude
+                 initialLongitude = position.coords.longitude
+                 mapDisplay(initialLatitude, initialLongitude)
             });
         } else {
             console.log("Geolocation Not Available")
         }
 
-
-        let mapDisplay = () => {
-        const mymap = L.map('mapid').setView([latitude, longitude], 13);
+        const mymap = L.map('mapid').setView([initialLatitude, initialLongitude], 13);
 
         const attribution =
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
         const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
         const tiles = L.tileLayer(tileUrl, { attribution });
         tiles.addTo(mymap);;
+
+
+        let mapDisplay = (latitudeVal, longitudeVal) => {
+         
     }
 
     let myFunction = () => {
-            document.getElementById("latitude").innerHTML = latitude;
-            document.getElementById("longitude").innerHTML = longitude;
-            mapDisplay(); 
+          document.getElementById("latitude").innerHTML = initialLatitude
+          document.getElementById("longitude").innerHTML = initialLongitude
+            
         }
 
     </script>
