@@ -30,15 +30,12 @@
         
 
         let mapDisplay = () => {
-
+            document.getElementById("latitude").innerHTML = initialLatitude
+            document.getElementById("longitude").innerHTML = initialLongitude
             mymap.setView([initialLatitude, initialLongitude], 12)
             mymarker.setLatLng([initialLatitude, initialLongitude], 12)
           
 
         }
 
-        let myFunction = () => {
-            document.getElementById("latitude").innerHTML = initialLatitude
-            document.getElementById("longitude").innerHTML = initialLongitude
-            getGeloation();
-        }
+       
