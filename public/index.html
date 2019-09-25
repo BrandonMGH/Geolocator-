@@ -13,15 +13,20 @@
         crossorigin=""></script>
 
     <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Geolocator</title>
 </head>
 
 <body>
+    <div>
+        <h1 id="Geolocator">Geolocator</h1>
+    </div>
     <div class="grid-container">
         <div class="grid-item">
-            <h1>Geolocator</h1>
-            <button onclick="myFunction()" id="myBtn">click me to find out your longitutde and lattitude</button>
+
+
+            <button type="button" class="btn btn-outline-dark" onclick="myFunction()" id="myBtn">Click here to find your location</button>
             <p>Latitude: <span id="latitude"></span></p>
             <p>Longitude: <span id="longitude"></span></p>
         </div>
@@ -30,7 +35,7 @@
         </div>
     </div>
     <script src="assets/js/map.js"></script>
-   
+
 </body>
 
 </html>

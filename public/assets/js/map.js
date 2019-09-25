@@ -1,6 +1,6 @@
 
-        let initialLatitude = 51.505
-        let initialLongitude = -0.09;
+          let initialLatitude;
+          let initialLongitude;
 
         let getGeloation = () => {
             if ("geolocation" in navigator) {
@@ -27,7 +27,7 @@
         const tiles = L.tileLayer(tileUrl, { attribution });
         tiles.addTo(mymap);;
        
-
+        
 
         let mapDisplay = () => {
 

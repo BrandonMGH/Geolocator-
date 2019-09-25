@@ -1,24 +1,36 @@
-body {
-    background-color: grey; 
+
+
+#Geolocator {
+    display: flex;
+    justify-content: center; 
+    padding-bottom: 25px;
+    padding-top: 25px;  
+}
+
+#myBtn{
+    margin: 25px; 
 }
 
 #mapid { 
     height: 500px; 
     width: 75%; 
+    border-style: solid;
+    border-color: black; 
 }
 
 #mapContainer {
   display: flex;
   justify-content: center;
-  background-color: white; 
   padding-top: 25px;
   padding-bottom: 25px; 
+  
 
 }
 
-h1 {color: red}
 
 .grid-container {
     display: grid;
     text-align: center; 
+    background-color: wheat;
+    border-top-style: solid; 
   }
